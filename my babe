@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>张潇琪 × 李彦娇｜我们的宇宙</title>
+<style>
+*{box-sizing:border-box}
+:root{--pink:#ffd5ef;--purple:#d8b8ff}
+body{
+ margin:0;height:100vh;height:100dvh;overflow:hidden;
+ color:white;font-family:"Microsoft YaHei",sans-serif;
+ background:
+ radial-gradient(ellipse at 15% 15%,#b67acb 0%,transparent 42%),
+ radial-gradient(ellipse at 85% 80%,#bb72b4 0%,transparent 42%),
+ linear-gradient(145deg,#17112e,#49315f 55%,#211630);
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;
+ background-image:
+ radial-gradient(2px 2px at 15% 20%,white 98%,transparent),
+ radial-gradient(2px 2px at 75% 15%,white 98%,transparent),
+ radial-gradient(1px 1px at 45% 65%,white 98%,transparent),
+ radial-gradient(2px 2px at 85% 75%,white 98%,transparent),
+ radial-gradient(1px 1px at 25% 85%,white 98%,transparent);
+ background-size:190px 190px;opacity:.75;
+}
+.app{
+ position:relative;width:min(100%,650px);height:100%;
+ margin:auto;padding:15px 18px 82px;
+ display:flex;flex-direction:column;
+}
+header{text-align:center;padding:5px 0 12px;flex-shrink:0}
+.tag{font-size:10px;letter-spacing:3px;color:#f5d7f3}
+h1{font-size:clamp(25px,7vw,36px);margin:9px 0 4px;
+ text-shadow:0 0 20px #ffc5ef}
+.sub{font-size:11px;color:#eacbea;letter-spacing:2px}
+main{flex:1;min-height:0;display:flex;align-items:center}
+.page{display:none;width:100%;animation:fade .3s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(7px)}
+ to{opacity:1;transform:translateY(0)}}
+h2{text-align:center;font-size:21px;margin:0 0 16px}
+.cover{
+ height:clamp(155px,30vh,245px);border-radius:22px;
+ border:1px solid #ffffff66;
+ background:linear-gradient(135deg,#d99acb,#75558e);
+ display:flex;align-items:center;justify-content:center;
+ text-align:center;box-shadow:0 12px 40px #130b2d66;
+ overflow:hidden;
+}
+.cover .emoji{font-size:54px}
+.cover p{font-size:13px}
+.counter{text-align:center;margin:14px 0}
+.counter small{color:#f1d6ef;letter-spacing:2px}
+.days{font-size:54px;font-weight:bold;color:#ffe0f5;
+ text-shadow:0 0 25px #ff9de0;line-height:1.2}
+.note{
+ background:#ffffff19;border:1px solid #ffffff35;
+ border-radius:18px;padding:17px;text-align:center;
+ line-height:1.85;font-size:14px;color:#fff0fa;
+ backdrop-filter:blur(8px);
+}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.photo{
+ height:clamp(105px,17vh,145px);border-radius:15px;
+ background:linear-gradient(145deg,#dba8d2,#8064a8);
+ border:1px solid #ffffff55;display:flex;
+ flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;font-size:13px;overflow:hidden;
+}
+.photo b{font-size:32px;margin-bottom:6px}
+.letter{line-height:2;font-size:13px;text-align:left}
+button{
+ color:white;background:#ffffff22;border:1px solid #ffffff66;
+ border-radius:30px;padding:10px 17px;font-size:13px;
+ margin:5px;cursor:pointer;
+}
+button:active{transform:scale(.96)}
+input{
+ width:100%;padding:12px;border:1px solid #ffffff66;
+ border-radius:13px;background:#ffffff20;color:white;
+ outline:none;font-size:14px;
+}
+input::placeholder{color:#e8cde8}
+.wish-list{
+ max-height:30vh;overflow-y:auto;text-align:left;margin-top:10px;
+}
+.wish-item{
+ display:flex;align-items:center;gap:8px;
+ padding:9px 0;border-bottom:1px solid #ffffff30;
+}
+.wish-item span{flex:1;overflow-wrap:anywhere}
+.wish-item button{margin:0;padding:5px 10px;font-size:11px}
+.result{margin-top:15px;color:#ffe1f5;line-height:1.8;min-height:45px}
+nav{
+ position:absolute;bottom:10px;left:12px;right:12px;
+ height:62px;border-radius:20px;
+ background:#241936e8;border:1px solid #ffffff35;
+ display:flex;justify-content:space-around;align-items:center;
+ backdrop-filter:blur(12px);
+}
+nav button{
+ border:0;background:transparent;padding:6px 3px;
+ margin:0;color:#d9c3df;font-size:10px;
+ display:flex;flex-direction:column;gap:4px;
+}
+nav button span{font-size:19px}
+nav button.selected{color:#ffc8eb;text-shadow:0 0 12px #ff9de0}
+@media(max-height:650px){
+ header{padding:0 0 6px}
+ h1{margin:5px 0}
+ .cover{height:145px}
+ .counter{margin:8px 0}
+ .days{font-size:43px}
+ .photo{height:95px}
+ .note{padding:12px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header>
+ <div class="tag">✦ OUR LITTLE UNIVERSE ✦</div>
+ <h1>张潇琪 ♡ 李彦娇</h1>
+ <div class="sub">在浩瀚宇宙里，偏偏遇见你</div>
+</header>
+
+<main>
+
+<!-- 主页 -->
+<section class="page active" id="home">
+ <div class="cover">
+  <div>
+   <div class="emoji">🌙 💗 🌙</div>
+   <p>这里是属于我们的宇宙</p>
+   <small>YOU ARE MY FAVORITE PERSON</small>
+  </div>
+ </div>
+ <div class="counter">
+  <small>我们已经相爱</small>
+  <div class="days">106</div>
+  <small>天 · 未来还有好多好多天</small>
+ </div>
+ <div class="note">
+  世界很大，而我最喜欢的地方<br>
+  是有你在的地方。💗
+ </div>
+</section>
+
+<!-- 照片墙 -->
+<section class="page" id="photos">
+ <h2>✦ 我们的照片星球 ✦</h2>
+ <div class="grid">
+  <div class="photo"><b>🫂</b>我们的拥抱</div>
+  <div class="photo"><b>💐</b>送你的花</div>
+  <div class="photo"><b>🌃</b>一起看夜景</div>
+  <div class="photo"><b>🪞</b>镜子里的我们</div>
+ </div>
+ <p style="text-align:center;font-size:11px;color:#ead2eb">
+  每一张照片，都是我珍藏的回忆。
+ </p>
+</section>
+
+<!-- 情书 -->
+<section class="page" id="letter">
+ <h2>✦ 写给你的情书 ✦</h2>
+ <div class="note letter">
+  亲爱的你：<br>
+  遇见你之后，平凡的日子也开始闪闪发光。<br>
+  我喜欢你的笑，喜欢你的拥抱，喜欢和你一起度过的每个瞬间。<br>
+  我想和你看更多风景，拍更多照片，把未来的日子都写满我们的故事。<br>
+  谢谢你来到我的生命里。<br><br>
+  <div style="text-align:right">永远偏爱你的我 ♡</div>
+ </div>
+</section>
+
+<!-- 可编辑愿望 -->
+<section class="page" id="wish">
+ <h2>✦ 我们的愿望星球 ✦</h2>
+ <div class="note">
+  把想和彼此完成的事情，收藏在这里。💗
+  <div style="margin-top:13px">
+   <input id="wishInput" maxlength="80"
+    placeholder="写下你们的小愿望...">
+   <button onclick="addWish()">＋ 添加愿望</button>
+  </div>
+  <div class="wish-list" id="wishList"></div>
+ </div>
+</section>
+
+<!-- 惊喜 -->
+<section class="page" id="surprise">
+ <h2>✦ 专属小惊喜 ✦</h2>
+ <div class="note">
+  这是只属于你的秘密星球。<br>
+  点一下，领取我的心意。
+  <div style="margin-top:15px">
+   <button onclick="surpriseLove()">💌 情话</button>
+   <button onclick="surpriseHug()">🫂 抱抱</button>
+   <button onclick="surpriseWish()">🌟 愿望</button>
+  </div>
+  <div class="result" id="result">等你来发现我的小秘密 💗</div>
+ </div>
+</section>
+
+</main>
+
+<nav>
+ <button class="selected" onclick="go('home',this)">
+  <span>🏠</span>主页
+ </button>
+ <button onclick="go('photos',this)">
+  <span>📷</span>照片
+ </button>
+ <button onclick="go('letter',this)">
+  <span>💌</span>情书
+ </button>
+ <button onclick="go('wish',this)">
+  <span>🌟</span>愿望
+ </button>
+ <button onclick="go('surprise',this)">
+  <span>🎁</span>惊喜
+ </button>
+</nav>
+</div>
+
+<script>
+function go(id,button){
+ document.querySelectorAll('.page').forEach(p=>{
+  p.classList.remove('active');
+ });
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>{
+  b.classList.remove('selected');
+ });
+ button.classList.add('selected');
+}
+
+function surpriseLove(){
+ document.getElementById('result').textContent=
+ '💗 世界很大，但我只想牵着你的手。';
+}
+function surpriseHug(){
+ document.getElementById('result').textContent=
+ '🫂 抱紧紧！给你一个永远不松开的抱抱！';
+}
+function surpriseWish(){
+ document.getElementById('result').textContent=
+ '🌟 希望我们一直相爱，一起走很远很远。';
+}
+
+/* 愿望保存 */
+let wishes=[];
+try{
+ wishes=JSON.parse(localStorage.getItem('ourWishes')||'[]');
+ if(!Array.isArray(wishes)) wishes=[];
+}catch(e){wishes=[];}
+
+function saveWishes(){
+ try{
+  localStorage.setItem('ourWishes',JSON.stringify(wishes));
+ }catch(e){}
+}
+
+function renderWishes(){
+ const list=document.getElementById('wishList');
+ list.innerHTML='';
+ if(wishes.length===0){
+  list.textContent='还没有愿望，等你们来填写 ✨';
+  list.style.textAlign='center';
+  list.style.padding='15px 0';
+  return;
+ }
+ list.style.textAlign='left';
+ wishes.forEach((wish,index)=>{
+  const row=document.createElement('div');
+  row.className='wish-item';
+
+  const text=document.createElement('span');
+  text.textContent='🌟 '+wish;
+
+  const del=document.createElement('button');
+  del.textContent='删除';
+  del.onclick=()=>{
+   wishes.splice(index,1);
+   saveWishes();
+   renderWishes();
+  };
+
+  row.appendChild(text);
+  row.appendChild(del);
+  list.appendChild(row);
+ });
+}
+
+function addWish(){
+ const input=document.getElementById('wishInput');
+ const value=input.value.trim();
+ if(!value){
+  input.focus();
+  return;
+ }
+ wishes.push(value);
+ input.value='';
+ saveWishes();
+ renderWishes();
+}
+
+document.getElementById('wishInput').addEventListener('keydown',e=>{
+ if(e.key==='Enter') addWish();
+});
+
+renderWishes();
+</script>
+</body>
+</html>
